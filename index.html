@@ -14,6 +14,7 @@
 <body>
  <h1>Bushfires in Australia between 2019 - 2020</h1> 
 <div id="symbol_map"></div>
+<div id="bar_chart"></div>
 
 <script type="text/javascript">
 
@@ -26,7 +27,7 @@
 <script type="text/javascript">
 
   var spec2 = "js/symbol_map_interactive.vg.json";
-  vegaEmbed('#symbol_map', spec2).then(function(result) {
+  vegaEmbed('#bar_chart', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>

@@ -4,7 +4,7 @@
 	"width": 800,
 	"height": 600,
 	"data": {
-		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179Wk10/master/data/table1.csv"
+		"url": "../data/table1.csv"
 	},
 	"params": [
 		{
@@ -15,71 +15,61 @@
 				"min": 0,
 				"max": 5000,
 				"step": 100,
-				"name": "Fire area ('000 hectares) at least: "
+				"name": "Fire area (000 hectares) at least: "
 			}
 		}
 
 	],
-
 	"encoding": {
 		"x": {
-			"field": "Jurisdiction",
+			"field": "state",
 			"type": "nominal"
 		},
 		"y": {
-			"field": "Fire_area",
-			"title": "Fire area ('000 hectares)",
-			"type": "quantitative",
-			"axis": {
-				"gridColor": {
-					"condition": { "test": "datum.value === 0", "value": "black" },
-					"value": "#ddd"
-				}
-			}
+			"field": "fire",
+			"title": "Fire area (000 hectares)",
+			"type": "quantitative"
 		}
-		
 	},
+	
+
+	"transform": [{"filter": "Fire_area_at_least < datum['fire']" }],
+
 	"layer": [
 		{
 			"mark": "bar",
 
 			"encoding": {
 				"x": {
-					"field": "Jurisdiction",
+					"field": "state",
 					"type": "nominal"
 				},
 				"y": {
-                    "field": "Fire_area",
+                    "field": "fire",
                     "title": "Fire area (000 hectares)",
-                    "type": "quantitative",
-                    "axis": {
-                        "gridColor": {
-                            "condition": { "test": "datum.value === 0", "value": "black" },
-                            "value": "#ddd"
-                        }
-                    }
+                    "type": "quantitative"
                 },
 
 				"tooltip": [
 					{
-						"field": "Jurisdiction",
+						"field": "state",
 						"type": "nominal",
-						"title": "Jurisdiction"
+						"title": "State"
 					},
 					{
-						"field": "Fire_area",
+						"field": "fire",
 						"type": "quantitative",
 						"title": "Fire area (000 hectares)",
 						"format": ".2f"
 					},
 					{
-						"field": "Forest_area_in_fire_area",
+						"field": "forest",
 						"type": "quantitative",
 						"title": "Forest area in fire area",
 						"format": ".2f"
 					},
                     {
-						"field": "Proportion_of_fire_area_that_is_forested",
+						"field": "proportion",
 						"type": "quantitative",
 						"title": "Proportion of fire area that is forested",
 						"format": ".2f"

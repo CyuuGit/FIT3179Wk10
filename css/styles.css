@@ -5,12 +5,3 @@ h1{
 	padding-bottom: 30px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
-#symbol_map{
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
-}
