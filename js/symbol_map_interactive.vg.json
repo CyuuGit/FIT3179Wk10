@@ -1,10 +1,10 @@
 {
 	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 	"description": "A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.",
-	"width": "container",
-	"height": "container",
+	"width": 800,
+	"height": 600,
 	"data": {
-		"url": "data/table1.csv"
+		"url": "https://raw.githubusercontent.com/CyuuGit/FIT3179Wk10/master/data/table1.csv"
 	},
 	"params": [
 		{
@@ -12,47 +12,23 @@
 			"value": 0,
 			"bind": {
 				"input": "range",
-
 				"min": 0,
 				"max": 5000,
 				"step": 100,
 				"name": "Fire area ('000 hectares) at least: "
 			}
-		},
-		{
-			"name": "State Selection",
-			"bind": {
-				"input": "select",
-				"options": [
-					null,
-					"Australian Capital Territory (ACT)",
-					"New South Wales (NSW)",
-					"Northern Territory (NT)",
-					"Queensland (QLD)",
-					"South Australia (SA)",
-					"Tasmania (TAS)",
-                    "Victoria (VIC)",
-                    "Western Australia (WA)"
-				],
-				"labels": [
-					"Australian Capital Territory (ACT)",
-					"New South Wales (NSW)",
-					"Northern Territory (NT)",
-					"Queensland (QLD)",
-					"South Australia (SA)",
-					"Tasmania (TAS)",
-                    "Victoria (VIC)",
-                    "Western Australia (WA)"
-				],
-				"name": "Select a jurisdiction: "
-			}
 		}
+
 	],
 
 	"encoding": {
+		"x": {
+			"field": "Jurisdiction",
+			"type": "nominal"
+		},
 		"y": {
-			"field": "Fire area (000 hectares)",
-			"title": "Fire area (000 hectares)",
+			"field": "Fire_area",
+			"title": "Fire area ('000 hectares)",
 			"type": "quantitative",
 			"axis": {
 				"gridColor": {
@@ -60,11 +36,8 @@
 					"value": "#ddd"
 				}
 			}
-		},
-		"x": {
-			"field": "Jurisdiction",
-			"type": "nominal"
 		}
+		
 	},
 	"layer": [
 		{
@@ -76,7 +49,7 @@
 					"type": "nominal"
 				},
 				"y": {
-                    "field": "Fire area (000 hectares)",
+                    "field": "Fire_area",
                     "title": "Fire area (000 hectares)",
                     "type": "quantitative",
                     "axis": {
@@ -94,19 +67,19 @@
 						"title": "Jurisdiction"
 					},
 					{
-						"field": "Fire area (000 hectares)",
+						"field": "Fire_area",
 						"type": "quantitative",
 						"title": "Fire area (000 hectares)",
 						"format": ".2f"
 					},
 					{
-						"field": "Forest area in fire area (000 hectares)",
+						"field": "Forest_area_in_fire_area",
 						"type": "quantitative",
-						"title": "Forest area in fire area (000 hectares)",
+						"title": "Forest area in fire area",
 						"format": ".2f"
 					},
                     {
-						"field": "Proportion of fire area that is forested",
+						"field": "Proportion_of_fire_area_that_is_forested",
 						"type": "quantitative",
 						"title": "Proportion of fire area that is forested",
 						"format": ".2f"
