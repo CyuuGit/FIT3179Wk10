@@ -4,7 +4,7 @@
 	"width": "container",
 	"height": "container",
 	"data": {
-		"url": "data/table1.xlsx"
+		"url": "data/table1.csv"
 	},
 	"params": [
 		{
@@ -49,19 +49,10 @@
 		}
 	],
 
-	"transform": [
-		{ "calculate": "datum[1985]-datum[2019]", "as": "mortality_diff" },
-		{ "calculate": "abs(datum[1985]-datum[2019])", "as": "mortality_diff_abs" },
-		{ "filter": "datum.mortality_diff_abs > Mortality_rate_at_least" },
-		{
-			"filter": "Continent_selection == null || datum['Continent Name'] == Continent_selection"
-		}
-	],
-
 	"encoding": {
 		"y": {
-			"field": "Fire area ('000 hectares)",
-			"title": "Fire area ('000 hectares)",
+			"field": "Fire area (000 hectares)",
+			"title": "Fire area (000 hectares)",
 			"type": "quantitative",
 			"axis": {
 				"gridColor": {
@@ -85,8 +76,8 @@
 					"type": "nominal"
 				},
 				"y": {
-                    "field": "Fire area ('000 hectares)",
-                    "title": "Fire area ('000 hectares)",
+                    "field": "Fire area (000 hectares)",
+                    "title": "Fire area (000 hectares)",
                     "type": "quantitative",
                     "axis": {
                         "gridColor": {
@@ -103,15 +94,15 @@
 						"title": "Jurisdiction"
 					},
 					{
-						"field": "Fire area ('000 hectares)",
+						"field": "Fire area (000 hectares)",
 						"type": "quantitative",
-						"title": "Fire area ('000 hectares)",
+						"title": "Fire area (000 hectares)",
 						"format": ".2f"
 					},
 					{
-						"field": "Forest area in fire area ('000 hectares)",
+						"field": "Forest area in fire area (000 hectares)",
 						"type": "quantitative",
-						"title": "Forest area in fire area ('000 hectares)",
+						"title": "Forest area in fire area (000 hectares)",
 						"format": ".2f"
 					},
                     {
